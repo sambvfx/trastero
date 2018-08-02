@@ -390,7 +390,7 @@ class QueryTable extends React.Component {
         />
         {collection &&
           <Query
-            query={TableData.query}
+            query={TableData.query} 
             variables={{collection: collection, limit: limit}}
             fetchPolicy='network-only'
           >

@@ -5,12 +5,13 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+import logo from './trastero.png';
 
 
 const drawerWidth = 240;
@@ -26,7 +27,7 @@ const styles = theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    background: 'linear-gradient(45deg, #37383a 30%, #93989a 90%)',
+    background: 'linear-gradient(45deg, #467980 30%, #ececec 90%)',
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -113,9 +114,7 @@ class MiniDrawer extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" noWrap>
-              Trastero
-            </Typography>
+            <img src={logo} alt="Trastero" style={{height: 30}}/>
           </Toolbar>
         </AppBar>
         <Drawer
