@@ -5,4 +5,8 @@
 venv*/
 .cache*/
 
+node_modules
+yarn-error.log
+build
+
 _data/*
