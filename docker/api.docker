@@ -1,0 +1,26 @@
+FROM python:3
+
+ARG WORKDIR=/opt/app
+ENV WORKDIR=$WORKDIR
+WORKDIR $WORKDIR
+
+
+# `ll` as alias for  `ls -la --color`
+RUN echo "alias ll=\"ls -la --color\"" >> ~/.bashrc
+
+
+ARG PYTHONUSERBASE=/root/.local
+ENV PYTHONUSERBASE=$PYTHONUSERBASE
+RUN mkdir -p $PYTHONUSERBASE/bin
+ENV PATH=$PYTHONUSERBASE/bin:$PATH
+
+
+COPY ./trastero-api ./trastero-api
+
+RUN pip install --user -r ./trastero-api/requirements.txt
+RUN pip install --user -e ./trastero-api
+
+# FIXME: remove this after testing
+RUN pip install --user ipython
+
+CMD python -m trastero_server.app

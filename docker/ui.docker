@@ -1,0 +1,16 @@
+FROM node:10.5
+
+ARG WORKDIR=/opt/app
+ENV WORKDIR=$WORKDIR
+WORKDIR $WORKDIR/trastero-ui
+
+
+# `ll` as alias for  `ls -la --color`
+RUN echo "alias ll=\"ls -la --color\"" >> ~/.bashrc
+
+COPY ./trastero-ui/public ./public
+COPY ./trastero-ui/src ./src
+COPY ./trastero-ui/package.json ./package.json
+COPY ./trastero-ui/yarn.lock ./yarn.lock
+
+RUN set -ex && yarn install --pure-lockfile && yarn cache clean

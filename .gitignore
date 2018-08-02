@@ -1,0 +1,8 @@
+*.pyc
+*.orig
+.*/
+.env
+venv*/
+.cache*/
+
+_data/*
