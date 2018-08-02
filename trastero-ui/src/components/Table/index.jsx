@@ -269,11 +269,11 @@ TableData.query = gql`
 
 
 const COLUMNS = [
-  'thumbnail',
+  // 'thumbnail',
   'url',
   'tags',
-  'metadata',
-  'metadata.type',
+  // 'metadata',
+  // 'metadata.type',
 ];
 
 
@@ -289,7 +289,7 @@ class QueryTable extends React.Component {
       orderBy: 'url',
       selected: [],
       page: 0,
-      rowsPerPage: 5,
+      rowsPerPage: 10,
       limit: 100000,
     }
   }

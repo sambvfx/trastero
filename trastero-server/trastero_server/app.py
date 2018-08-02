@@ -40,6 +40,6 @@ if __name__ == '__main__':
     import trastero.tests
     print('Adding test data...')
     trastero.tests.generate_test_data('/opt/app/_data/')
-    # trastero.tests.generate_test_data('/opt/app/trastero-ui/', collection_name='trastero-ui')
+    trastero.tests.capture_manifest('/opt/app')
 
     app.run(host='0.0.0.0', debug=True)
