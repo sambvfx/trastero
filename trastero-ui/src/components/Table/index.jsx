@@ -72,7 +72,7 @@ class Collections extends React.Component {
                   className: classes.menu,
                 },
               }}
-              helperText={collection ? undefined : 'Please select a collection'}
+              helperText={collection ? undefined : 'Select a collection'}
               margin="normal"
             >
               {collections.map(name => (
@@ -147,13 +147,15 @@ class TableToolbar extends React.Component {
         </div>
         <div className={classes.spacer}/>
         <div className={classes.actions}>
-          {numSelected &&
-              <Tooltip title="Delete">
-                <IconButton aria-label="Delete">
-                  <DeleteIcon/>
-                </IconButton>
-              </Tooltip>
-          }
+          {numSelected > 0 ? (
+            <Tooltip title="Delete">
+              <IconButton aria-label="Delete">
+                <DeleteIcon/>
+              </IconButton>
+            </Tooltip>
+          ) : (
+            null
+          )}
         </div>
       </Toolbar>
     )
@@ -272,7 +274,7 @@ const COLUMNS = [
   // 'thumbnail',
   'url',
   'tags',
-  // 'metadata',
+  'metadata',
   // 'metadata.type',
 ];
 
@@ -390,7 +392,7 @@ class QueryTable extends React.Component {
         />
         {collection &&
           <Query
-            query={TableData.query} 
+            query={TableData.query}
             variables={{collection: collection, limit: limit}}
             fetchPolicy='network-only'
           >
