@@ -5,6 +5,11 @@
 Start up two terminals:
 
 *backend*
+
+```
+./trastero $ make images
+```
+
 ```
 ./trastero $ make start
 ```

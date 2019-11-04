@@ -1,4 +1,4 @@
-Flask-GraphQL
-flask-pymongo>=2.0
-graphene-mongo
+Flask-GraphQL==2.0.0
+Flask-PyMongo==2.3.0
+graphene-mongo==0.2.8
 trastero

@@ -15,12 +15,12 @@ class Item(MongoengineObjectType):
 
 class DynamicCollection(MongoengineConnectionField):
 
-    @classmethod
-    def get_query(cls, model, info, **args):
+    def get_queryset(self, model, info, **args):
         if 'collection' not in info.context:
             return [], 0
         with switch_collection(model, info.context['collection']):
-            return super(DynamicCollection, cls).get_query(model, info, **args)
+            return super(DynamicCollection, self).get_queryset(
+                model, info, **args)
 
 
 class Query(graphene.ObjectType):
