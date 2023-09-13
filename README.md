@@ -1,4 +1,6 @@
-##trastero
+## trastero
+
+Trastero is a simple proof of concept fullstack app to explore exposing a backend via GraphQL. 
 
 #### local development
 
